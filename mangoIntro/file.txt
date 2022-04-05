@@ -1,0 +1,28 @@
+|--> creating DataBase:->
+    use assignment
+
+
+|--> creating collection:->
+    db.createCollection("users") // here users is collection Name
+
+
+|--> inserting only one Document:->
+     db.users.insert({"first_name":"ashwa","last_name":"swetha","email":"ashwa123@gmail.com","gender":"Male","ip_address":"12345678","age":"60"})// here we have 6 fields inside one document..
+
+|--> inserting Many Document at a time:->
+    db.users.insertMany([{"first_name":"aarathi","last_name":"gowda","email":"aarathi123@gmail.com","gender":"Female","ip_address":"11145678","age":"20"},
+                        {"first_name":"basava","last_name":"gowda","email":"basava123@gmail.com","gender":"Male","ip_address":"11115678","age":"20"},
+                        {"first_name":"krishna","last_name":"murali","email":"krishna123@gmail.com","gender":"Male","ip_address":"11111111","age":"00"},
+                        {"first_name":"radhe","last_name":"sri","email":"radha123@gmail.com","gender":"Female","ip_address":"22222222","age":"00"}]) 
+                         // here we are inserting multiple documents inside  an Array by putting ","(camma) after each document.
+
+|--> to update only one Document:->
+    db.users.update({"first_name":"shiva"},{$set:{"colour":"blue"}}) // by default it updates only one
+|--> to  update multiple documents which has same last_name as "raj":->
+    db.users.updateMany({"last_name":"raj"},{$set:{"religion":"hindu"}})
+
+|--> delete one document:->
+    db.users.deleteOne({"first_name":"shiva"},{$set:{"colour":"blue"}}) // it deletes only one document with the given id.
+
+|--> delete many document:->
+    db.users.deleteMany({"age":"00"}) // it deletes all document with the age 00.
